@@ -1,8 +1,6 @@
 package com.dave.doyouevenrun.domain;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,6 +16,8 @@ import javax.persistence.Id;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class RunWorkout {
 
     @Id
@@ -25,6 +25,6 @@ public class RunWorkout {
     private Long id;
 
     private String title;
-    private Long distance;
+    private float distance;
     private String time;
 }
