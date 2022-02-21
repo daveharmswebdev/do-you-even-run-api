@@ -1,7 +1,6 @@
 package com.dave.doyouevenrun.services;
 
-import com.dave.doyouevenrun.domain.RunWorkout;
-import org.springframework.stereotype.Service;
+import com.dave.doyouevenrun.api.model.RunWorkoutDto;
 
 import java.util.List;
 
@@ -12,13 +11,13 @@ import java.util.List;
  */
 public interface RunWorkoutService {
 
-    List<RunWorkout> getAllRunWorkouts();
+    List<RunWorkoutDto> getAllRunWorkouts();
 
-    RunWorkout getRunWorkoutById(Long id);
+    RunWorkoutDto getRunWorkoutById(Long id);
 
-    RunWorkout createNewRunWorkout(RunWorkout workout);
+    RunWorkoutDto createNewRunWorkout(RunWorkoutDto dto);
 
-    RunWorkout updateRunWorkout(RunWorkout workout);
+    RunWorkoutDto updateRunWorkout(Long id, RunWorkoutDto dto);
 
     void deleteRunWorkout(Long id);
 }

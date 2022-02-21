@@ -1,6 +1,6 @@
 package com.dave.doyouevenrun.controller;
 
-import com.dave.doyouevenrun.domain.RunWorkout;
+import com.dave.doyouevenrun.api.model.RunWorkoutDto;
 import com.dave.doyouevenrun.services.RunWorkoutService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -24,20 +24,26 @@ public class RunController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<RunWorkout> getRuns() {
+    public List<RunWorkoutDto> getRuns() {
         return runWorkoutService.getAllRunWorkouts();
     }
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public RunWorkout getWorkoutById(@PathVariable Long id) {
+    public RunWorkoutDto getWorkoutById(@PathVariable Long id) {
         return runWorkoutService.getRunWorkoutById(id);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public RunWorkout createNewRun(@RequestBody RunWorkout workout) {
-        return runWorkoutService.createNewRunWorkout(workout);
+    public RunWorkoutDto createNewRun(@RequestBody RunWorkoutDto dto) {
+        return runWorkoutService.createNewRunWorkout(dto);
+    }
+
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public RunWorkoutDto updateRunWorkout(@PathVariable Long id, @RequestBody RunWorkoutDto dto) {
+        return runWorkoutService.updateRunWorkout(id, dto);
     }
 
     @DeleteMapping({"/{id}"})
