@@ -55,6 +55,7 @@ public class RunWorkoutServiceImpl implements RunWorkoutService {
 
     @Override
     public void deleteRunWorkout(Long id) {
+        getRunWorkoutById(id);
         runWorkoutRepository.deleteById(id);
     }
 
